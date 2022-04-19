@@ -14,7 +14,7 @@
                 <h3>Online Presence</h3>
                     <a href="{{ ucfirst($cv->urllinks) }}">Click here to visit this individuals most used digital profile.</a> </li>
                 <hr>
-                <a href="/cv/{{ $cv->id }}/edit" class="btn btn-outline-primary">Edit CV</a>
+                <a href="/cvs/{{ $cv->id }}/edit" class="btn btn-outline-primary">Edit CV</a>
                 <br><br>
                 <form id="delete" class="" action="" method="POST">
                     @method('DELETE')

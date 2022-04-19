@@ -27,3 +27,6 @@ Route::get('/cvs/{cv}/edit', [\App\Http\Controllers\cvController::class, 'edit']
 Route::put('/cvs/{cv}/edit', [\App\Http\Controllers\cvController::class, 'update']); //updates cv
 
 Route::delete('/cvs/{cv}', [\App\Http\Controllers\cvController::class, 'destroy']); //deletes cv
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

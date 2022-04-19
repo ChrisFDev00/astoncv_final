@@ -10,7 +10,7 @@
                     </div>
                     <div class="col-4">
                         <p>Create CV</p>
-                        <a href="/cv/create/CV" class="btn btn-primary btn-sm">Add CV</a>
+                        <a href="/cvs/create/cv" class="btn btn-primary btn-sm">Add CV</a>
                     </div>
                 </div>              
                     <table class="table">
@@ -18,7 +18,7 @@
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Full Name</th>
-                                <th scope="col">Education</th>
+                                <th scope="col">Contact Email</th>
                                 <th scope="col">Primary Programming Language</th>
                             </tr>
                         </thead>
@@ -27,7 +27,7 @@
                             <tr>
                                 <th scope="row">{{ ucfirst($cv->id) }}</th>
                                     <td><a href="./cvs/{{ $cv->id }}">{{ ucfirst($cv->name) }}</a></td>
-                                    <td>{{ ucfirst($cv->education) }}</td>
+                                    <td>{{ ucfirst($cv->email) }}</td>
                                     <td>{{ ucfirst($cv->keyprogramming) }}</td>
                             </tr>
                             @endforeach

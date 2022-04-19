@@ -36,13 +36,14 @@ class cvController extends Controller
      */
     public function store(Request $request)
     {
-        $newCV = cv::create([
-            'name' => $request->input('name'),
-            'email' => $request->input('email'),
-            'keyprogramming' => $request->input('keyprogramming'),
-            'education' => $request->input('education'),
-            'urllinks' => $request->input('urllinks'),
-        ]);
+        $cv = new cv;
+        $cv->name = $request->name;
+        $cv->email = $request->email;
+        $cv->keyprogramming = $request->keyprogramming;
+        $cv->education = $request->education;
+        $cv->urllinks = $request->urllinks;
+        $cv->save();
+        return redirect('/cvs');
     }
 
     /**
@@ -64,7 +65,7 @@ class cvController extends Controller
      */
     public function edit(cv $cv)
     {
-        //
+        return view('cv.edit', ['cv' => $cv]);
     }
 
     /**
@@ -76,7 +77,14 @@ class cvController extends Controller
      */
     public function update(Request $request, cv $cv)
     {
-        //
+        $cv->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'keyprogramming' => $request->keyprogramming,
+            'education' => $request->education,
+            'urllinks' => $request->urllinks,
+        ]);
+        return redirect('/cvs/' . $cv->id);
     }
 
     /**
@@ -87,6 +95,7 @@ class cvController extends Controller
      */
     public function destroy(cv $cv)
     {
-        //
+        $cv->delete();
+        return redirect('/cvs');
     }
 }
