@@ -42,6 +42,7 @@ class cvController extends Controller
         $cv->keyprogramming = $request->keyprogramming;
         $cv->education = $request->education;
         $cv->urllinks = $request->urllinks;
+        $cv->user_id = auth()->user()->id;
         $cv->save();
         return redirect('/cvs');
     }
@@ -87,6 +88,17 @@ class cvController extends Controller
         return redirect('/cvs/' . $cv->id);
     }
 
+    public function search(Request $request){
+
+        if($request->isMethod('post'))  {
+            $search = $request->get('search');
+            $cvs = cv::where('name', 'like', '%' . $search . '%')->paginate(10) || 
+            cv::where('email', 'like', '%' . $search . '%')->paginate(10) || 
+            cv::where('keyprogramming', 'like', '%' . $search . '%')->paginate(10);
+        }
+
+        return view('search', compact('cvs'));
+    }
     /**
      * Remove the specified resource from storage.
      *

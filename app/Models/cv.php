@@ -15,5 +15,6 @@ class cv extends Model
         'keyprogramming',
         'education',
         'urllinks',
+        'user_id',
     ];
 }

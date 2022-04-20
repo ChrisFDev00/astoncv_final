@@ -14,13 +14,17 @@
                 <h3>Online Presence</h3>
                     <a href="{{ ucfirst($cv->urllinks) }}">Click here to visit this individuals most used digital profile.</a> </li>
                 <hr>
+                @if (isset(Auth::user()->id) && Auth::user()->id == $cv->user_id)
                 <a href="/cvs/{{ $cv->id }}/edit" class="btn btn-outline-primary">Edit CV</a>
                 <br><br>
                 <form id="delete" class="" action="" method="POST">
                     @method('DELETE')
                     @csrf
-                    <button class="btn btn-danger">Delete Post</button>
+                    <button class="btn btn-danger">Delete CV</button>
                 </form>
+                @else
+                <p>You do not have permission to edit or delte this CV, you are only permitted to alter/delete a CV you have created.</p>
+                @endif
             </div>
         </div>
     </div>

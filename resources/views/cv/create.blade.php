@@ -7,14 +7,14 @@
             <div class="col-12 pt-2">
                 <a href="/cvs" class="btn btn-outline-primary btn-sm">Go back</a>
                 <div class="border rounded mt-5 pl-4 pr-4 pt-4 pb-4">
-                    <h1 class="display-4">Create a New CV</h1
+                    <h1 id="test" class="display-4">Create a New CV</h1
 
                     <hr>
 
                     <form action="/cvs/create/cv" method="POST">
                         @csrf
                         <div class="mb-3">
-                            <label for="name" class="form-label">Full Name</label>
+                            <label for="name" id="csstest" class="form-label">Full Name</label>
                             <input name="name" type="text" class="form-control" id="name" placeholder="John Doe" required>
                         </div>
 

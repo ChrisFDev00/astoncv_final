@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,11 @@ Route::get('/cvs/{cv}/edit', [\App\Http\Controllers\cvController::class, 'edit']
 Route::put('/cvs/{cv}/edit', [\App\Http\Controllers\cvController::class, 'update']); //updates cv
 
 Route::delete('/cvs/{cv}', [\App\Http\Controllers\cvController::class, 'destroy']); //deletes cv
+
+Route::post('/search', [\App\Http\Controllers\cvController::class, 'search']); //search cv database
+
+Route::post('auth/logout', 'Auth\AuthController@getLogout');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
